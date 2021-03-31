@@ -1,1827 +1,1814 @@
 {
-	"info": {
-		"_postman_id": "52aabe47-f807-4292-bed7-5c23b1253c82",
-		"name": "TD Ameritrade",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Accounts and Trading",
-			"item": [
-				{
-					"name": "Orders",
-					"item": [
-						{
-							"name": "Cancel Order",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/orders/:orderId",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId",
-										"orders",
-										":orderId"
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										},
-										{
-											"key": "orderId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Cancel a specific order for a specific account."
-							},
-							"response": []
-						},
-						{
-							"name": "Get Order",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/orders/:orderId",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId",
-										"orders",
-										":orderId"
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										},
-										{
-											"key": "orderId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Get a specific order for a specific account."
-							},
-							"response": []
-						},
-						{
-							"name": "Get Orders by Path",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/orders?maxResults&fromEnteredTime&toEnteredTime&status",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId",
-										"orders"
-									],
-									"query": [
-										{
-											"key": "maxResults",
-											"value": null,
-											"description": "The max number of orders to retrieve."
-										},
-										{
-											"key": "fromEnteredTime",
-											"value": null,
-											"description": "Specifies that no orders entered before this time should be returned. Valid ISO-8601 formats are :\nyyyy-MM-dd. Date must be within 60 days from today's date. 'toEnteredTime' must also be set."
-										},
-										{
-											"key": "toEnteredTime",
-											"value": null,
-											"description": "Specifies that no orders entered after this time should be returned.Valid ISO-8601 formats are :\nyyyy-MM-dd. 'fromEnteredTime' must also be set."
-										},
-										{
-											"key": "status",
-											"value": null,
-											"description": "Specifies that only orders of this status should be returned."
-										}
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Orders for a specific account."
-							},
-							"response": []
-						},
-						{
-							"name": "Get Orders by Query",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/orders?accountId&maxResults&fromEnteredTime&toEnteredTime&status",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"orders"
-									],
-									"query": [
-										{
-											"key": "accountId",
-											"value": null,
-											"description": "Account Number."
-										},
-										{
-											"key": "maxResults",
-											"value": null,
-											"description": "The max number of orders to retrieve."
-										},
-										{
-											"key": "fromEnteredTime",
-											"value": null,
-											"description": "Specifies that no orders entered before this time should be returned. Valid ISO-8601 formats are :\nyyyy-MM-dd. Date must be within 60 days from today's date. 'toEnteredTime' must also be set."
-										},
-										{
-											"key": "toEnteredTime",
-											"value": null,
-											"description": "Specifies that no orders entered after this time should be returned.Valid ISO-8601 formats are :\nyyyy-MM-dd. 'fromEnteredTime' must also be set."
-										},
-										{
-											"key": "status",
-											"value": null,
-											"description": "Specifies that only orders of this status should be returned."
-										}
-									]
-								},
-								"description": "All orders for a specific account or, if account ID isn't specified, orders will be returned for all linked accounts."
-							},
-							"response": []
-						},
-						{
-							"name": "Place Order",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/orders",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId",
-										"orders"
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Place an order for a specific account. Click here for to see our Place Order Samples Guide."
-							},
-							"response": []
-						},
-						{
-							"name": "Replace Order",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/orders/:orderId",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId",
-										"orders",
-										":orderId"
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										},
-										{
-											"key": "orderId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Replace an existing order for an account. The existing order will be replaced by the new order. Once replaced, the old order will be canceled and a new order will be created. Click here for to see our Place Order Samples Guide."
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Saved Orders",
-					"item": [
-						{
-							"name": "Create Saved Order",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/savedorders",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId",
-										"savedorders"
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Save an order for a specific account. Click here for to see our Place Order Samples Guide."
-							},
-							"response": []
-						},
-						{
-							"name": "Delete Saved Order",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/savedorders/:savedOrderId",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId",
-										"savedorders",
-										":savedOrderId"
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										},
-										{
-											"key": "savedOrderId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Delete a specific saved order for a specific account."
-							},
-							"response": []
-						},
-						{
-							"name": "Get Saved Order",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/savedorders/:savedOrderId",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId",
-										"savedorders",
-										":savedOrderId"
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										},
-										{
-											"key": "savedOrderId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Specific saved order by its ID, for a specific account."
-							},
-							"response": []
-						},
-						{
-							"name": "Get Saved Order by Path",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/savedorders",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId",
-										"savedorders"
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Saved orders for a specific account."
-							},
-							"response": []
-						},
-						{
-							"name": "Replace Saved Order",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/savedorders/:savedOrderId",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId",
-										"savedorders",
-										":savedOrderId"
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										},
-										{
-											"key": "savedOrderId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Replace an existing saved order for an account. The existing saved order will be replaced by the new order. Click here for to see our Place Order Samples Guide."
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Accounts",
-					"item": [
-						{
-							"name": "Get Account",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts/:accountId?fields",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts",
-										":accountId"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": null,
-											"description": "Balances displayed by default, additional fields can be added here by adding positions or orders\n\nExample:\nfields=positions,orders"
-										}
-									],
-									"variable": [
-										{
-											"key": "accountId",
-											"value": ""
-										}
-									]
-								},
-								"description": "Account balances, positions, and orders for a specific account."
-							},
-							"response": []
-						},
-						{
-							"name": "Get Accounts",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "{{token}}",
-										"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://api.tdameritrade.com/v1/accounts?fields",
-									"protocol": "https",
-									"host": [
-										"api",
-										"tdameritrade",
-										"com"
-									],
-									"path": [
-										"v1",
-										"accounts"
-									],
-									"query": [
-										{
-											"key": "fields",
-											"value": null,
-											"description": "Balances displayed by default, additional fields can be added here by adding positions or orders\n\nExample:\nfields=positions,orders"
-										}
-									]
-								},
-								"description": "Account balances, positions, and orders for all linked accounts."
-							},
-							"response": []
-						}
-					]
-				}
-			],
-			"description": "APIs to access Account Balances, Positions, Trade Info and place Trades"
-		},
-		{
-			"name": "Authentication",
-			"item": [
-				{
-					"name": "Post Access Token",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/oauth2/token?grant_type&refresh_token&access_type&code&client_id&redirect_uri",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"oauth2",
-								"token"
-							],
-							"query": [
-								{
-									"key": "grant_type",
-									"value": null,
-									"description": "The grant type of the oAuth scheme. Possible values are authorization_code, refresh_token"
-								},
-								{
-									"key": "refresh_token",
-									"value": null,
-									"description": "Required if using refresh token grant"
-								},
-								{
-									"key": "access_type",
-									"value": null,
-									"description": "Set to offline to receive a refresh token on an authorization_code grant type request. Do not set to offline on a refresh_token grant type request."
-								},
-								{
-									"key": "code",
-									"value": null,
-									"description": "Required if trying to use authorization code grant"
-								},
-								{
-									"key": "client_id",
-									"value": null,
-									"description": "OAuth User ID of your application"
-								},
-								{
-									"key": "redirect_uri",
-									"value": null,
-									"description": "Required if trying to use authorization code grant"
-								}
-							]
-						},
-						"description": "The token endpoint returns an access token along with an optional refresh token."
-					},
-					"response": []
-				}
-			],
-			"description": "oAuth API to retrieve the bearer token which can be used to access other APIs"
-		},
-		{
-			"name": "Instruments",
-			"item": [
-				{
-					"name": "Search Instruments",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/instruments?apikey&symbol&projection",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"instruments"
-							],
-							"query": [
-								{
-									"key": "apikey",
-									"value": null,
-									"description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
-								},
-								{
-									"key": "symbol",
-									"value": null,
-									"description": "Value to pass to the search. See projection description for more information."
-								},
-								{
-									"key": "projection",
-									"value": null,
-									"description": "The type of request:\n\nsymbol-search: Retrieve instrument data of a specific symbol or cusip\n\nsymbol-regex: Retrieve instrument data for all symbols matching regex. Example: symbol=XYZ.* will return all symbols beginning with XYZ\n\ndesc-search: Retrieve instrument data for instruments whose description contains the word supplied. Example: symbol=FakeCompany will return all instruments with FakeCompany in the description.\n\ndesc-regex: Search description with full regex support. Example: symbol=XYZ.[A-C] returns all instruments whose descriptions contain a word beginning with XYZ followed by a character A through C.\n\nfundamental: Returns fundamental data for a single instrument specified by exact symbol."
-								}
-							]
-						},
-						"description": "Search or retrieve instrument data, including fundamental data."
-					},
-					"response": []
-				},
-				{
-					"name": "Get Instrument",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/instruments/:cusip?apikey",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"instruments",
-								":cusip"
-							],
-							"query": [
-								{
-									"key": "apikey",
-									"value": null,
-									"description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
-								}
-							],
-							"variable": [
-								{
-									"key": "cusip",
-									"value": ""
-								}
-							]
-						},
-						"description": "Get an instrument by CUSIP"
-					},
-					"response": []
-				}
-			],
-			"description": "Search for instrument and fundamental data"
-		},
-		{
-			"name": "Market Hours",
-			"item": [
-				{
-					"name": "Get Hours for Multiple Markets",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/marketdata/hours?apikey&markets&date",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"marketdata",
-								"hours"
-							],
-							"query": [
-								{
-									"key": "apikey",
-									"value": null,
-									"description": "(Optional) Pass your Client ID if making an unauthenticated request"
-								},
-								{
-									"key": "markets",
-									"value": null,
-									"description": "The markets for which you're requesting market hours, comma-separated. Valid markets are EQUITY, OPTION, FUTURE, BOND, or FOREX."
-								},
-								{
-									"key": "date",
-									"value": null,
-									"description": "\"The date for which market hours information is requested. Valid ISO-8601 formats are : yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.\""
-								}
-							]
-						},
-						"description": "Retrieve market hours for specified markets"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Hours for a Single Market",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/marketdata/:market/hours?apikey&date",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"marketdata",
-								":market",
-								"hours"
-							],
-							"query": [
-								{
-									"key": "apikey",
-									"value": null,
-									"description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
-								},
-								{
-									"key": "date",
-									"value": null,
-									"description": "The date for which market hours information is requested. Valid ISO-8601 formats are : yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz."
-								}
-							],
-							"variable": [
-								{
-									"key": "market",
-									"value": ""
-								}
-							]
-						},
-						"description": "Retrieve market hours for specified single market"
-					},
-					"response": []
-				}
-			],
-			"description": "Operating hours of markets"
-		},
-		{
-			"name": "Movers",
-			"item": [
-				{
-					"name": "Get Movers",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/marketdata/:index/movers?apikey&direction&change",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"marketdata",
-								":index",
-								"movers"
-							],
-							"query": [
-								{
-									"key": "apikey",
-									"value": null,
-									"description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
-								},
-								{
-									"key": "direction",
-									"value": null,
-									"description": "To return movers with the specified directions of up or down"
-								},
-								{
-									"key": "change",
-									"value": null,
-									"description": "To return movers with the specified change types of percent or value"
-								}
-							],
-							"variable": [
-								{
-									"key": "index",
-									"value": ""
-								}
-							]
-						},
-						"description": "Top 10 (up or down) movers by value or percent for a particular market"
-					},
-					"response": []
-				}
-			],
-			"description": "Retrieve mover information by index symbol, direction type and change"
-		},
-		{
-			"name": "Option Chains",
-			"item": [
-				{
-					"name": "Get Option Chain",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/marketdata/chains?apikey&symbol&contractType&strikeCount&includeQuotes&strategy&interval&strike&range&fromDate&toDate&volatility&underlyingPrice&interestRate&daysToExpiration&expMonth&optionType",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"marketdata",
-								"chains"
-							],
-							"query": [
-								{
-									"key": "apikey",
-									"value": null,
-									"description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
-								},
-								{
-									"key": "symbol",
-									"value": null,
-									"description": "Enter one symbol"
-								},
-								{
-									"key": "contractType",
-									"value": null,
-									"description": "Type of contracts to return in the chain. Can be CALL, PUT, or ALL. Default is ALL."
-								},
-								{
-									"key": "strikeCount",
-									"value": null,
-									"description": "The number of strikes to return above and below the at-the-money price."
-								},
-								{
-									"key": "includeQuotes",
-									"value": null,
-									"description": "Include quotes for options in the option chain. Can be TRUE or FALSE. Default is FALSE."
-								},
-								{
-									"key": "strategy",
-									"value": null,
-									"description": "Passing a value returns a Strategy Chain. Possible values are SINGLE, ANALYTICAL (allows use of the volatility, underlyingPrice, interestRate, and daysToExpiration params to calculate theoretical values), COVERED, VERTICAL, CALENDAR, STRANGLE, STRADDLE, BUTTERFLY, CONDOR, DIAGONAL, COLLAR, or ROLL. Default is SINGLE."
-								},
-								{
-									"key": "interval",
-									"value": null,
-									"description": "Strike interval for spread strategy chains (see strategy param)."
-								},
-								{
-									"key": "strike",
-									"value": null,
-									"description": "Provide a strike price to return options only at that strike price."
-								},
-								{
-									"key": "range",
-									"value": null,
-									"description": "Returns options for the given range. Possible values are:\n\nITM: In-the-money\nNTM: Near-the-money\nOTM: Out-of-the-money\nSAK: Strikes Above Market\nSBK: Strikes Below Market\nSNK: Strikes Near Market\nALL: All Strikes\n\nDefault is ALL."
-								},
-								{
-									"key": "fromDate",
-									"value": null,
-									"description": "'Only return expirations after this date. For strategies, expiration refers to the nearest term expiration in the strategy. Valid ISO-8601 formats are: yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.'"
-								},
-								{
-									"key": "toDate",
-									"value": null,
-									"description": "'Only return expirations before this date. For strategies, expiration refers to the nearest term expiration in the strategy. Valid ISO-8601 formats are: yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.'"
-								},
-								{
-									"key": "volatility",
-									"value": null,
-									"description": "Volatility to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param)."
-								},
-								{
-									"key": "underlyingPrice",
-									"value": null,
-									"description": "Underlying price to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param)."
-								},
-								{
-									"key": "interestRate",
-									"value": null,
-									"description": "Interest rate to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param)."
-								},
-								{
-									"key": "daysToExpiration",
-									"value": null,
-									"description": "Days to expiration to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param)."
-								},
-								{
-									"key": "expMonth",
-									"value": null,
-									"description": "'Return only options expiring in the specified month. Month is given in the three character format.\nExample: JAN\nDefault is ALL.''"
-								},
-								{
-									"key": "optionType",
-									"value": null,
-									"description": "'Type of contracts to return. Possible values are:\n\nS: Standard contracts\nNS: Non-standard contracts\nALL: All contracts\n\nDefault is ALL.''"
-								}
-							]
-						},
-						"description": "Get option chain for an optionable Symbol"
-					},
-					"response": []
-				}
-			],
-			"description": "Get Option Chains for optionable symbols"
-		},
-		{
-			"name": "Price History",
-			"item": [
-				{
-					"name": "Get Price History",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/marketdata/:symbol/pricehistory?apikey&periodType&period&frequencyType&frequency&endDate&startDate&needExtendedHoursData",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"marketdata",
-								":symbol",
-								"pricehistory"
-							],
-							"query": [
-								{
-									"key": "apikey",
-									"value": null,
-									"description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
-								},
-								{
-									"key": "periodType",
-									"value": null,
-									"description": "The type of period to show. Valid values are day, month, year, or ytd (year to date). Default is day."
-								},
-								{
-									"key": "period",
-									"value": null,
-									"description": "The number of periods to show.\n\nExample: For a 2 day / 1 min chart, the values would be:\n\nperiod: 2\nperiodType: day\nfrequency: 1\nfrequencyType: min\n\nValid periods by periodType (defaults marked with an asterisk):\n\nday: 1, 2, 3, 4, 5, 10*\nmonth: 1*, 2, 3, 6\nyear: 1*, 2, 3, 5, 10, 15, 20\nytd: 1*"
-								},
-								{
-									"key": "frequencyType",
-									"value": null,
-									"description": "The type of frequency with which a new candle is formed.\n\nValid frequencyTypes by periodType (defaults marked with an asterisk):\n\nday: minute*\nmonth: daily, weekly*\nyear: daily, weekly, monthly*\nytd: daily, weekly*"
-								},
-								{
-									"key": "frequency",
-									"value": null,
-									"description": "The number of the frequencyType to be included in each candle.\n\nValid frequencies by frequencyType (defaults marked with an asterisk):\n\nminute: 1*, 5, 10, 15, 30\ndaily: 1*\nweekly: 1*\nmonthly: 1*"
-								},
-								{
-									"key": "endDate",
-									"value": null,
-									"description": "End date as milliseconds since epoch. If startDate and endDate are provided, period should not be provided. Default is previous trading day."
-								},
-								{
-									"key": "startDate",
-									"value": null,
-									"description": "Start date as milliseconds since epoch. If startDate and endDate are provided, period should not be provided."
-								},
-								{
-									"key": "needExtendedHoursData",
-									"value": null,
-									"description": "true to return extended hours data, false for regular market hours only. Default is true"
-								}
-							],
-							"variable": [
-								{
-									"key": "symbol",
-									"value": ""
-								}
-							]
-						},
-						"description": "Get price history for a symbol"
-					},
-					"response": []
-				}
-			],
-			"description": "Historical price data for charts"
-		},
-		{
-			"name": "Quotes",
-			"item": [
-				{
-					"name": "Get Quote",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/marketdata/:symbol/quotes?apikey",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"marketdata",
-								":symbol",
-								"quotes"
-							],
-							"query": [
-								{
-									"key": "apikey",
-									"value": null,
-									"description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
-								}
-							],
-							"variable": [
-								{
-									"key": "symbol",
-									"value": ""
-								}
-							]
-						},
-						"description": "Get quote for a symbol"
-					},
-					"response": []
-				},
-				{
-					"name": "Get Quotes",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "(Optional) The Authorization token to validate the request. Not required for un-authenticated requests. Not required if using below 'OAuth 2.0 Set' link to do the authentication.\n\n",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/marketdata/quotes?apikey&symbol",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"marketdata",
-								"quotes"
-							],
-							"query": [
-								{
-									"key": "apikey",
-									"value": null,
-									"description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
-								},
-								{
-									"key": "symbol",
-									"value": null,
-									"description": "Enter one or more symbols separated by commas"
-								}
-							]
-						},
-						"description": "Get quote for one or more symbols"
-					},
-					"response": []
-				}
-			],
-			"description": "Request real-time and delayed top level quote data"
-		},
-		{
-			"name": "Transaction History",
-			"item": [
-				{
-					"name": "Get Transaction",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/transactions/:transactionId",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								":accountId",
-								"transactions",
-								":transactionId"
-							],
-							"variable": [
-								{
-									"key": "accountId",
-									"value": ""
-								},
-								{
-									"key": "transactionId",
-									"value": ""
-								}
-							]
-						},
-						"description": "Transaction for a specific account."
-					},
-					"response": []
-				},
-				{
-					"name": "Get Transactions",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/transactions?type&symbol&startDate&endDate",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								":accountId",
-								"transactions"
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": null,
-									"description": "Only transactions with the specified type will be returned."
-								},
-								{
-									"key": "symbol",
-									"value": null,
-									"description": "Only transactions with the specified symbol will be returned."
-								},
-								{
-									"key": "startDate",
-									"value": null,
-									"description": "Only transactions after the Start Date will be returned.\nNote: The maximum date range is one year. Valid ISO-8601 formats are :\nyyyy-MM-dd."
-								},
-								{
-									"key": "endDate",
-									"value": null,
-									"description": "Only transactions before the End Date will be returned.\nNote: The maximum date range is one year. Valid ISO-8601 formats are :\nyyyy-MM-dd."
-								}
-							],
-							"variable": [
-								{
-									"key": "accountId",
-									"value": ""
-								}
-							]
-						},
-						"description": "Transactions for a specific account."
-					},
-					"response": []
-				}
-			],
-			"description": "APIs to access transaction history on the account"
-		},
-		{
-			"name": "User Info and Preferences",
-			"item": [
-				{
-					"name": "Get Preferences",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/preferences",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								":accountId",
-								"preferences"
-							],
-							"variable": [
-								{
-									"key": "accountId",
-									"value": ""
-								}
-							]
-						},
-						"description": "Preferences for a specific account."
-					},
-					"response": []
-				},
-				{
-					"name": "Get Streamer Subscription Keys",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/userprincipals/streamersubscriptionkeys?accountIds",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"userprincipals",
-								"streamersubscriptionkeys"
-							],
-							"query": [
-								{
-									"key": "accountIds",
-									"value": null,
-									"description": "A comma separated string of account IDs, to fetch subscription keys for each of them."
-								}
-							]
-						},
-						"description": "SubscriptionKey for provided accounts or default accounts."
-					},
-					"response": []
-				},
-				{
-					"name": "Get User Principals",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/userprincipals?fields",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"userprincipals"
-							],
-							"query": [
-								{
-									"key": "fields",
-									"value": null,
-									"description": "A comma separated String which allows one to specify additional fields to return. None of these fields are returned by default. Possible values in this String can be:\n\nstreamerSubscriptionKeys\nstreamerConnectionInfo\npreferences\nsurrogateIds\n\nExample:\nfields=streamerSubscriptionKeys,streamerConnectionInfo"
-								}
-							]
-						},
-						"description": "User Principal details."
-					},
-					"response": []
-				},
-				{
-					"name": "Update Preferences",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/preferences",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								":accountId",
-								"preferences"
-							],
-							"variable": [
-								{
-									"key": "accountId",
-									"value": ""
-								}
-							]
-						},
-						"description": "Update preferences for a specific account. Please note that the directOptionsRouting and directEquityRouting values cannot be modified via this operation."
-					},
-					"response": []
-				}
-			],
-			"description": "APIs to access user-authorized accounts and their preferences"
-		},
-		{
-			"name": "Watchlist",
-			"item": [
-				{
-					"name": "Create Watchlist",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/watchlists",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								":accountId",
-								"watchlists"
-							],
-							"variable": [
-								{
-									"key": "accountId",
-									"value": ""
-								}
-							]
-						},
-						"description": "Create watchlist for specific account.This method does not verify that the symbol or asset type are valid."
-					},
-					"response": []
-				},
-				{
-					"name": "Delete Watchlist",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/:accountId:/watchlists/:watchlistId",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								":accountId:",
-								"watchlists",
-								":watchlistId"
-							],
-							"variable": [
-								{
-									"key": "accountId:",
-									"value": ""
-								},
-								{
-									"key": "watchlistId",
-									"value": ""
-								}
-							]
-						},
-						"description": "Delete watchlist for a specific account."
-					},
-					"response": []
-				},
-				{
-					"name": "Get Watchlist",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/watchlists/:watchlistId",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								":accountId",
-								"watchlists",
-								":watchlistId"
-							],
-							"variable": [
-								{
-									"key": "accountId",
-									"value": ""
-								},
-								{
-									"key": "watchlistId",
-									"value": ""
-								}
-							]
-						},
-						"description": "Specific watchlist for a specific account."
-					},
-					"response": []
-				},
-				{
-					"name": "Get Watchlists for Multiple Accounts",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/watchlists",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								"watchlists"
-							]
-						},
-						"description": "All watchlists for all of the user's linked accounts."
-					},
-					"response": []
-				},
-				{
-					"name": "Get Watchlists for Single Account",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/watchlists",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								":accountId",
-								"watchlists"
-							],
-							"variable": [
-								{
-									"key": "accountId",
-									"value": ""
-								}
-							]
-						},
-						"description": "All watchlists of an account."
-					},
-					"response": []
-				},
-				{
-					"name": "Replace Watchlist",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{token}}",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/watchlists/:watchlistId",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								":accountId",
-								"watchlists",
-								":watchlistId"
-							],
-							"variable": [
-								{
-									"key": "accountId",
-									"value": ""
-								},
-								{
-									"key": "watchlistId",
-									"value": ""
-								}
-							]
-						},
-						"description": "Replace watchlist for a specific account. This method does not verify that the symbol or asset type are valid."
-					},
-					"response": []
-				},
-				{
-					"name": "Update Watchlist",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "",
-								"description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://api.tdameritrade.com/v1/accounts/:accountId/watchlists/:watchlistId",
-							"protocol": "https",
-							"host": [
-								"api",
-								"tdameritrade",
-								"com"
-							],
-							"path": [
-								"v1",
-								"accounts",
-								":accountId",
-								"watchlists",
-								":watchlistId"
-							],
-							"variable": [
-								{
-									"key": "accountId",
-									"value": ""
-								},
-								{
-									"key": "watchlistId",
-									"value": ""
-								}
-							]
-						},
-						"description": "Partially update watchlist for a specific account: change watchlist name, add to the beginning/end of a watchlist, update or delete items in a watchlist. This method does not verify that the symbol or asset type are valid."
-					},
-					"response": []
-				}
-			],
-			"description": "APIs to perform CRUD operations on Account Watchlist"
-		},
-		{
-			"name": "Get Auth Token",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://auth.tdameritrade.com/auth?response_type=code&redirect_uri=&client_id=",
-					"protocol": "https",
-					"host": [
-						"auth",
-						"tdameritrade",
-						"com"
-					],
-					"path": [
-						"auth"
-					],
-					"query": [
-						{
-							"key": "response_type",
-							"value": "code"
-						},
-						{
-							"key": "redirect_uri",
-							"value": ""
-						},
-						{
-							"key": "client_id",
-							"value": ""
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Refresh Token",
-			"request": {
-				"auth": {
-					"type": "noauth"
-				},
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "grant_type",
-							"value": "authorization_code",
-							"type": "text"
-						},
-						{
-							"key": "client_id",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "redirect_uri",
-							"value": "",
-							"type": "text"
-						},
-						{
-							"key": "code",
-							"value": "",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "https://api.tdameritrade.com/v1/oauth2/token",
-					"protocol": "https",
-					"host": [
-						"api",
-						"tdameritrade",
-						"com"
-					],
-					"path": [
-						"v1",
-						"oauth2",
-						"token"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+    "info": {
+        "_postman_id": "16e02e04-5e2e-451f-b734-44a0d3523950",
+        "name": "TD Ameritrade Copy 2",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [{
+            "name": "Accounts and Trading",
+            "item": [{
+                    "name": "Orders",
+                    "item": [{
+                            "name": "Cancel Order",
+                            "request": {
+                                "method": "DELETE",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/orders/:orderId",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "orders",
+                                        ":orderId"
+                                    ],
+                                    "variable": [{
+                                            "key": "accountId",
+                                            "value": ""
+                                        },
+                                        {
+                                            "key": "orderId",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                "description": "Cancel a specific order for a specific account."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get Order",
+                            "request": {
+                                "method": "GET",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/orders/:orderId",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "orders",
+                                        ":orderId"
+                                    ],
+                                    "variable": [{
+                                            "key": "accountId",
+                                            "value": ""
+                                        },
+                                        {
+                                            "key": "orderId",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                "description": "Get a specific order for a specific account."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get Orders by Path",
+                            "request": {
+                                "method": "GET",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/orders?maxResults&fromEnteredTime&toEnteredTime&status",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "orders"
+                                    ],
+                                    "query": [{
+                                            "key": "maxResults",
+                                            "value": null,
+                                            "description": "The max number of orders to retrieve."
+                                        },
+                                        {
+                                            "key": "fromEnteredTime",
+                                            "value": null,
+                                            "description": "Specifies that no orders entered before this time should be returned. Valid ISO-8601 formats are :\nyyyy-MM-dd. Date must be within 60 days from today's date. 'toEnteredTime' must also be set."
+                                        },
+                                        {
+                                            "key": "toEnteredTime",
+                                            "value": null,
+                                            "description": "Specifies that no orders entered after this time should be returned.Valid ISO-8601 formats are :\nyyyy-MM-dd. 'fromEnteredTime' must also be set."
+                                        },
+                                        {
+                                            "key": "status",
+                                            "value": null,
+                                            "description": "Specifies that only orders of this status should be returned."
+                                        }
+                                    ],
+                                    "variable": [{
+                                        "key": "accountId",
+                                        "value": ""
+                                    }]
+                                },
+                                "description": "Orders for a specific account."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get Orders by Query",
+                            "request": {
+                                "method": "GET",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/orders?accountId&maxResults&fromEnteredTime&toEnteredTime&status",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "orders"
+                                    ],
+                                    "query": [{
+                                            "key": "accountId",
+                                            "value": null,
+                                            "description": "Account Number."
+                                        },
+                                        {
+                                            "key": "maxResults",
+                                            "value": null,
+                                            "description": "The max number of orders to retrieve."
+                                        },
+                                        {
+                                            "key": "fromEnteredTime",
+                                            "value": null,
+                                            "description": "Specifies that no orders entered before this time should be returned. Valid ISO-8601 formats are :\nyyyy-MM-dd. Date must be within 60 days from today's date. 'toEnteredTime' must also be set."
+                                        },
+                                        {
+                                            "key": "toEnteredTime",
+                                            "value": null,
+                                            "description": "Specifies that no orders entered after this time should be returned.Valid ISO-8601 formats are :\nyyyy-MM-dd. 'fromEnteredTime' must also be set."
+                                        },
+                                        {
+                                            "key": "status",
+                                            "value": null,
+                                            "description": "Specifies that only orders of this status should be returned."
+                                        }
+                                    ]
+                                },
+                                "description": "All orders for a specific account or, if account ID isn't specified, orders will be returned for all linked accounts."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Place Order",
+                            "request": {
+                                "method": "POST",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/orders",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "orders"
+                                    ],
+                                    "variable": [{
+                                        "key": "accountId",
+                                        "value": ""
+                                    }]
+                                },
+                                "description": "Place an order for a specific account. Click here for to see our Place Order Samples Guide."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Replace Order",
+                            "request": {
+                                "method": "PUT",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/orders/:orderId",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "orders",
+                                        ":orderId"
+                                    ],
+                                    "variable": [{
+                                            "key": "accountId",
+                                            "value": ""
+                                        },
+                                        {
+                                            "key": "orderId",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                "description": "Replace an existing order for an account. The existing order will be replaced by the new order. Once replaced, the old order will be canceled and a new order will be created. Click here for to see our Place Order Samples Guide."
+                            },
+                            "response": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {},
+                    "_postman_isSubFolder": true
+                },
+                {
+                    "name": "Saved Orders",
+                    "item": [{
+                            "name": "Create Saved Order",
+                            "request": {
+                                "method": "POST",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/savedorders",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "savedorders"
+                                    ],
+                                    "variable": [{
+                                        "key": "accountId",
+                                        "value": ""
+                                    }]
+                                },
+                                "description": "Save an order for a specific account. Click here for to see our Place Order Samples Guide."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Delete Saved Order",
+                            "request": {
+                                "method": "DELETE",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/savedorders/:savedOrderId",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "savedorders",
+                                        ":savedOrderId"
+                                    ],
+                                    "variable": [{
+                                            "key": "accountId",
+                                            "value": ""
+                                        },
+                                        {
+                                            "key": "savedOrderId",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                "description": "Delete a specific saved order for a specific account."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get Saved Order",
+                            "request": {
+                                "method": "GET",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/savedorders/:savedOrderId",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "savedorders",
+                                        ":savedOrderId"
+                                    ],
+                                    "variable": [{
+                                            "key": "accountId",
+                                            "value": ""
+                                        },
+                                        {
+                                            "key": "savedOrderId",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                "description": "Specific saved order by its ID, for a specific account."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get Saved Order by Path",
+                            "request": {
+                                "method": "GET",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/savedorders",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "savedorders"
+                                    ],
+                                    "variable": [{
+                                        "key": "accountId",
+                                        "value": ""
+                                    }]
+                                },
+                                "description": "Saved orders for a specific account."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Replace Saved Order",
+                            "request": {
+                                "method": "PUT",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/savedorders/:savedOrderId",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId",
+                                        "savedorders",
+                                        ":savedOrderId"
+                                    ],
+                                    "variable": [{
+                                            "key": "accountId",
+                                            "value": ""
+                                        },
+                                        {
+                                            "key": "savedOrderId",
+                                            "value": ""
+                                        }
+                                    ]
+                                },
+                                "description": "Replace an existing saved order for an account. The existing saved order will be replaced by the new order. Click here for to see our Place Order Samples Guide."
+                            },
+                            "response": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {},
+                    "_postman_isSubFolder": true
+                },
+                {
+                    "name": "Accounts",
+                    "item": [{
+                            "name": "Get Account",
+                            "request": {
+                                "method": "GET",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts/:accountId?fields",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts",
+                                        ":accountId"
+                                    ],
+                                    "query": [{
+                                        "key": "fields",
+                                        "value": null,
+                                        "description": "Balances displayed by default, additional fields can be added here by adding positions or orders\n\nExample:\nfields=positions,orders"
+                                    }],
+                                    "variable": [{
+                                        "key": "accountId",
+                                        "value": ""
+                                    }]
+                                },
+                                "description": "Account balances, positions, and orders for a specific account."
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get Accounts",
+                            "request": {
+                                "method": "GET",
+                                "header": [{
+                                    "key": "Authorization",
+                                    "value": "{{token}}",
+                                    "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                                    "type": "text"
+                                }],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/accounts?fields",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "accounts"
+                                    ],
+                                    "query": [{
+                                        "key": "fields",
+                                        "value": null,
+                                        "description": "Balances displayed by default, additional fields can be added here by adding positions or orders\n\nExample:\nfields=positions,orders"
+                                    }]
+                                },
+                                "description": "Account balances, positions, and orders for all linked accounts."
+                            },
+                            "response": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {},
+                    "_postman_isSubFolder": true
+                }
+            ],
+            "description": "APIs to access Account Balances, Positions, Trade Info and place Trades",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Authentication",
+            "item": [{
+                "name": "Post Access Token",
+                "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                        "raw": "https://api.tdameritrade.com/v1/oauth2/token?grant_type&refresh_token&access_type&code&client_id&redirect_uri",
+                        "protocol": "https",
+                        "host": [
+                            "api",
+                            "tdameritrade",
+                            "com"
+                        ],
+                        "path": [
+                            "v1",
+                            "oauth2",
+                            "token"
+                        ],
+                        "query": [{
+                                "key": "grant_type",
+                                "value": null,
+                                "description": "The grant type of the oAuth scheme. Possible values are authorization_code, refresh_token"
+                            },
+                            {
+                                "key": "refresh_token",
+                                "value": null,
+                                "description": "Required if using refresh token grant"
+                            },
+                            {
+                                "key": "access_type",
+                                "value": null,
+                                "description": "Set to offline to receive a refresh token on an authorization_code grant type request. Do not set to offline on a refresh_token grant type request."
+                            },
+                            {
+                                "key": "code",
+                                "value": null,
+                                "description": "Required if trying to use authorization code grant"
+                            },
+                            {
+                                "key": "client_id",
+                                "value": null,
+                                "description": "OAuth User ID of your application"
+                            },
+                            {
+                                "key": "redirect_uri",
+                                "value": null,
+                                "description": "Required if trying to use authorization code grant"
+                            }
+                        ]
+                    },
+                    "description": "The token endpoint returns an access token along with an optional refresh token."
+                },
+                "response": []
+            }],
+            "description": "oAuth API to retrieve the bearer token which can be used to access other APIs",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Instruments",
+            "item": [{
+                    "name": "Search Instruments",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/instruments?apikey&symbol&projection",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "instruments"
+                            ],
+                            "query": [{
+                                    "key": "apikey",
+                                    "value": null,
+                                    "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                                },
+                                {
+                                    "key": "symbol",
+                                    "value": null,
+                                    "description": "Value to pass to the search. See projection description for more information."
+                                },
+                                {
+                                    "key": "projection",
+                                    "value": null,
+                                    "description": "The type of request:\n\nsymbol-search: Retrieve instrument data of a specific symbol or cusip\n\nsymbol-regex: Retrieve instrument data for all symbols matching regex. Example: symbol=XYZ.* will return all symbols beginning with XYZ\n\ndesc-search: Retrieve instrument data for instruments whose description contains the word supplied. Example: symbol=FakeCompany will return all instruments with FakeCompany in the description.\n\ndesc-regex: Search description with full regex support. Example: symbol=XYZ.[A-C] returns all instruments whose descriptions contain a word beginning with XYZ followed by a character A through C.\n\nfundamental: Returns fundamental data for a single instrument specified by exact symbol."
+                                }
+                            ]
+                        },
+                        "description": "Search or retrieve instrument data, including fundamental data."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Instrument",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/instruments/:cusip?apikey",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "instruments",
+                                ":cusip"
+                            ],
+                            "query": [{
+                                "key": "apikey",
+                                "value": null,
+                                "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                            }],
+                            "variable": [{
+                                "key": "cusip",
+                                "value": ""
+                            }]
+                        },
+                        "description": "Get an instrument by CUSIP"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Search for instrument and fundamental data",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Market Hours",
+            "item": [{
+                    "name": "Get Hours for Multiple Markets",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/marketdata/hours?apikey&markets&date",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "marketdata",
+                                "hours"
+                            ],
+                            "query": [{
+                                    "key": "apikey",
+                                    "value": null,
+                                    "description": "(Optional) Pass your Client ID if making an unauthenticated request"
+                                },
+                                {
+                                    "key": "markets",
+                                    "value": null,
+                                    "description": "The markets for which you're requesting market hours, comma-separated. Valid markets are EQUITY, OPTION, FUTURE, BOND, or FOREX."
+                                },
+                                {
+                                    "key": "date",
+                                    "value": null,
+                                    "description": "\"The date for which market hours information is requested. Valid ISO-8601 formats are : yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.\""
+                                }
+                            ]
+                        },
+                        "description": "Retrieve market hours for specified markets"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Hours for a Single Market",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/marketdata/:market/hours?apikey&date",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "marketdata",
+                                ":market",
+                                "hours"
+                            ],
+                            "query": [{
+                                    "key": "apikey",
+                                    "value": null,
+                                    "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                                },
+                                {
+                                    "key": "date",
+                                    "value": null,
+                                    "description": "The date for which market hours information is requested. Valid ISO-8601 formats are : yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz."
+                                }
+                            ],
+                            "variable": [{
+                                "key": "market",
+                                "value": ""
+                            }]
+                        },
+                        "description": "Retrieve market hours for specified single market"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Operating hours of markets",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Movers",
+            "item": [{
+                    "name": "By Index",
+                    "item": [{
+                            "name": "Get Movers - DJI",
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/marketdata/$DJI/movers?apikey&direction&change",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "marketdata",
+                                        "$DJI",
+                                        "movers"
+                                    ],
+                                    "query": [{
+                                            "key": "apikey",
+                                            "value": null,
+                                            "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                                        },
+                                        {
+                                            "key": "direction",
+                                            "value": null,
+                                            "description": "To return movers with the specified directions of up or down"
+                                        },
+                                        {
+                                            "key": "change",
+                                            "value": null,
+                                            "description": "To return movers with the specified change types of percent or value"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get Movers - SPX",
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/marketdata/$SPX.X/movers?apikey&direction&change",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "marketdata",
+                                        "$SPX.X",
+                                        "movers"
+                                    ],
+                                    "query": [{
+                                            "key": "apikey",
+                                            "value": null,
+                                            "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                                        },
+                                        {
+                                            "key": "direction",
+                                            "value": null,
+                                            "description": "To return movers with the specified directions of up or down"
+                                        },
+                                        {
+                                            "key": "change",
+                                            "value": null,
+                                            "description": "To return movers with the specified change types of percent or value"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Get Movers - COMPX",
+                            "request": {
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "https://api.tdameritrade.com/v1/marketdata/$COMPX/movers?apikey&direction&change",
+                                    "protocol": "https",
+                                    "host": [
+                                        "api",
+                                        "tdameritrade",
+                                        "com"
+                                    ],
+                                    "path": [
+                                        "v1",
+                                        "marketdata",
+                                        "$COMPX",
+                                        "movers"
+                                    ],
+                                    "query": [{
+                                            "key": "apikey",
+                                            "value": null,
+                                            "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                                        },
+                                        {
+                                            "key": "direction",
+                                            "value": null,
+                                            "description": "To return movers with the specified directions of up or down"
+                                        },
+                                        {
+                                            "key": "change",
+                                            "value": null,
+                                            "description": "To return movers with the specified change types of percent or value"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ],
+                    "protocolProfileBehavior": {},
+                    "_postman_isSubFolder": true
+                },
+                {
+                    "name": "Get Movers",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/marketdata/:index/movers?apikey&direction&change",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "marketdata",
+                                ":index",
+                                "movers"
+                            ],
+                            "query": [{
+                                    "key": "apikey",
+                                    "value": null,
+                                    "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                                },
+                                {
+                                    "key": "direction",
+                                    "value": null,
+                                    "description": "To return movers with the specified directions of up or down"
+                                },
+                                {
+                                    "key": "change",
+                                    "value": null,
+                                    "description": "To return movers with the specified change types of percent or value"
+                                }
+                            ],
+                            "variable": [{
+                                "key": "index",
+                                "value": ""
+                            }]
+                        },
+                        "description": "Top 10 (up or down) movers by value or percent for a particular market"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Retrieve mover information by index symbol, direction type and change",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Option Chains",
+            "item": [{
+                "name": "Get Option Chain",
+                "request": {
+                    "method": "GET",
+                    "header": [{
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                        "type": "text"
+                    }],
+                    "url": {
+                        "raw": "https://api.tdameritrade.com/v1/marketdata/chains?apikey&symbol&contractType&strikeCount&includeQuotes&strategy&interval&strike&range&fromDate&toDate&volatility&underlyingPrice&interestRate&daysToExpiration&expMonth&optionType",
+                        "protocol": "https",
+                        "host": [
+                            "api",
+                            "tdameritrade",
+                            "com"
+                        ],
+                        "path": [
+                            "v1",
+                            "marketdata",
+                            "chains"
+                        ],
+                        "query": [{
+                                "key": "apikey",
+                                "value": null,
+                                "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                            },
+                            {
+                                "key": "symbol",
+                                "value": null,
+                                "description": "Enter one symbol"
+                            },
+                            {
+                                "key": "contractType",
+                                "value": null,
+                                "description": "Type of contracts to return in the chain. Can be CALL, PUT, or ALL. Default is ALL."
+                            },
+                            {
+                                "key": "strikeCount",
+                                "value": null,
+                                "description": "The number of strikes to return above and below the at-the-money price."
+                            },
+                            {
+                                "key": "includeQuotes",
+                                "value": null,
+                                "description": "Include quotes for options in the option chain. Can be TRUE or FALSE. Default is FALSE."
+                            },
+                            {
+                                "key": "strategy",
+                                "value": null,
+                                "description": "Passing a value returns a Strategy Chain. Possible values are SINGLE, ANALYTICAL (allows use of the volatility, underlyingPrice, interestRate, and daysToExpiration params to calculate theoretical values), COVERED, VERTICAL, CALENDAR, STRANGLE, STRADDLE, BUTTERFLY, CONDOR, DIAGONAL, COLLAR, or ROLL. Default is SINGLE."
+                            },
+                            {
+                                "key": "interval",
+                                "value": null,
+                                "description": "Strike interval for spread strategy chains (see strategy param)."
+                            },
+                            {
+                                "key": "strike",
+                                "value": null,
+                                "description": "Provide a strike price to return options only at that strike price."
+                            },
+                            {
+                                "key": "range",
+                                "value": null,
+                                "description": "Returns options for the given range. Possible values are:\n\nITM: In-the-money\nNTM: Near-the-money\nOTM: Out-of-the-money\nSAK: Strikes Above Market\nSBK: Strikes Below Market\nSNK: Strikes Near Market\nALL: All Strikes\n\nDefault is ALL."
+                            },
+                            {
+                                "key": "fromDate",
+                                "value": null,
+                                "description": "'Only return expirations after this date. For strategies, expiration refers to the nearest term expiration in the strategy. Valid ISO-8601 formats are: yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.'"
+                            },
+                            {
+                                "key": "toDate",
+                                "value": null,
+                                "description": "'Only return expirations before this date. For strategies, expiration refers to the nearest term expiration in the strategy. Valid ISO-8601 formats are: yyyy-MM-dd and yyyy-MM-dd'T'HH:mm:ssz.'"
+                            },
+                            {
+                                "key": "volatility",
+                                "value": null,
+                                "description": "Volatility to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param)."
+                            },
+                            {
+                                "key": "underlyingPrice",
+                                "value": null,
+                                "description": "Underlying price to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param)."
+                            },
+                            {
+                                "key": "interestRate",
+                                "value": null,
+                                "description": "Interest rate to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param)."
+                            },
+                            {
+                                "key": "daysToExpiration",
+                                "value": null,
+                                "description": "Days to expiration to use in calculations. Applies only to ANALYTICAL strategy chains (see strategy param)."
+                            },
+                            {
+                                "key": "expMonth",
+                                "value": null,
+                                "description": "'Return only options expiring in the specified month. Month is given in the three character format.\nExample: JAN\nDefault is ALL.''"
+                            },
+                            {
+                                "key": "optionType",
+                                "value": null,
+                                "description": "'Type of contracts to return. Possible values are:\n\nS: Standard contracts\nNS: Non-standard contracts\nALL: All contracts\n\nDefault is ALL.''"
+                            }
+                        ]
+                    },
+                    "description": "Get option chain for an optionable Symbol"
+                },
+                "response": []
+            }],
+            "description": "Get Option Chains for optionable symbols",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Price History",
+            "item": [{
+                "name": "Get Price History",
+                "request": {
+                    "method": "GET",
+                    "header": [{
+                        "key": "Authorization",
+                        "value": "{{token}}",
+                        "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                        "type": "text"
+                    }],
+                    "url": {
+                        "raw": "https://api.tdameritrade.com/v1/marketdata/:symbol/pricehistory?apikey&periodType&period&frequencyType&frequency&endDate&startDate&needExtendedHoursData",
+                        "protocol": "https",
+                        "host": [
+                            "api",
+                            "tdameritrade",
+                            "com"
+                        ],
+                        "path": [
+                            "v1",
+                            "marketdata",
+                            ":symbol",
+                            "pricehistory"
+                        ],
+                        "query": [{
+                                "key": "apikey",
+                                "value": null,
+                                "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                            },
+                            {
+                                "key": "periodType",
+                                "value": null,
+                                "description": "The type of period to show. Valid values are day, month, year, or ytd (year to date). Default is day."
+                            },
+                            {
+                                "key": "period",
+                                "value": null,
+                                "description": "The number of periods to show.\n\nExample: For a 2 day / 1 min chart, the values would be:\n\nperiod: 2\nperiodType: day\nfrequency: 1\nfrequencyType: min\n\nValid periods by periodType (defaults marked with an asterisk):\n\nday: 1, 2, 3, 4, 5, 10*\nmonth: 1*, 2, 3, 6\nyear: 1*, 2, 3, 5, 10, 15, 20\nytd: 1*"
+                            },
+                            {
+                                "key": "frequencyType",
+                                "value": null,
+                                "description": "The type of frequency with which a new candle is formed.\n\nValid frequencyTypes by periodType (defaults marked with an asterisk):\n\nday: minute*\nmonth: daily, weekly*\nyear: daily, weekly, monthly*\nytd: daily, weekly*"
+                            },
+                            {
+                                "key": "frequency",
+                                "value": null,
+                                "description": "The number of the frequencyType to be included in each candle.\n\nValid frequencies by frequencyType (defaults marked with an asterisk):\n\nminute: 1*, 5, 10, 15, 30\ndaily: 1*\nweekly: 1*\nmonthly: 1*"
+                            },
+                            {
+                                "key": "endDate",
+                                "value": null,
+                                "description": "End date as milliseconds since epoch. If startDate and endDate are provided, period should not be provided. Default is previous trading day."
+                            },
+                            {
+                                "key": "startDate",
+                                "value": null,
+                                "description": "Start date as milliseconds since epoch. If startDate and endDate are provided, period should not be provided."
+                            },
+                            {
+                                "key": "needExtendedHoursData",
+                                "value": null,
+                                "description": "true to return extended hours data, false for regular market hours only. Default is true"
+                            }
+                        ],
+                        "variable": [{
+                            "key": "symbol",
+                            "value": ""
+                        }]
+                    },
+                    "description": "Get price history for a symbol"
+                },
+                "response": []
+            }],
+            "description": "Historical price data for charts",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Quotes",
+            "item": [{
+                    "name": "Get Quote",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/marketdata/:symbol/quotes?apikey",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "marketdata",
+                                ":symbol",
+                                "quotes"
+                            ],
+                            "query": [{
+                                "key": "apikey",
+                                "value": null,
+                                "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                            }],
+                            "variable": [{
+                                "key": "symbol",
+                                "value": ""
+                            }]
+                        },
+                        "description": "Get quote for a symbol"
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Quotes",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "(Optional) The Authorization token to validate the request. Not required for un-authenticated requests. Not required if using below 'OAuth 2.0 Set' link to do the authentication.\n\n",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/marketdata/quotes?apikey&symbol",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "marketdata",
+                                "quotes"
+                            ],
+                            "query": [{
+                                    "key": "apikey",
+                                    "value": null,
+                                    "description": "Pass your OAuth User ID to make an unauthenticated request for delayed data."
+                                },
+                                {
+                                    "key": "symbol",
+                                    "value": null,
+                                    "description": "Enter one or more symbols separated by commas"
+                                }
+                            ]
+                        },
+                        "description": "Get quote for one or more symbols"
+                    },
+                    "response": []
+                }
+            ],
+            "description": "Request real-time and delayed top level quote data",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Transaction History",
+            "item": [{
+                    "name": "Get Transaction",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/transactions/:transactionId",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                ":accountId",
+                                "transactions",
+                                ":transactionId"
+                            ],
+                            "variable": [{
+                                    "key": "accountId",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "transactionId",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Transaction for a specific account."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Transactions",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/transactions?type&symbol&startDate&endDate",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                ":accountId",
+                                "transactions"
+                            ],
+                            "query": [{
+                                    "key": "type",
+                                    "value": null,
+                                    "description": "Only transactions with the specified type will be returned."
+                                },
+                                {
+                                    "key": "symbol",
+                                    "value": null,
+                                    "description": "Only transactions with the specified symbol will be returned."
+                                },
+                                {
+                                    "key": "startDate",
+                                    "value": null,
+                                    "description": "Only transactions after the Start Date will be returned.\nNote: The maximum date range is one year. Valid ISO-8601 formats are :\nyyyy-MM-dd."
+                                },
+                                {
+                                    "key": "endDate",
+                                    "value": null,
+                                    "description": "Only transactions before the End Date will be returned.\nNote: The maximum date range is one year. Valid ISO-8601 formats are :\nyyyy-MM-dd."
+                                }
+                            ],
+                            "variable": [{
+                                "key": "accountId",
+                                "value": ""
+                            }]
+                        },
+                        "description": "Transactions for a specific account."
+                    },
+                    "response": []
+                }
+            ],
+            "description": "APIs to access transaction history on the account",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "User Info and Preferences",
+            "item": [{
+                    "name": "Get Preferences",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/preferences",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                ":accountId",
+                                "preferences"
+                            ],
+                            "variable": [{
+                                "key": "accountId",
+                                "value": ""
+                            }]
+                        },
+                        "description": "Preferences for a specific account."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Streamer Subscription Keys",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/userprincipals/streamersubscriptionkeys?accountIds",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "userprincipals",
+                                "streamersubscriptionkeys"
+                            ],
+                            "query": [{
+                                "key": "accountIds",
+                                "value": null,
+                                "description": "A comma separated string of account IDs, to fetch subscription keys for each of them."
+                            }]
+                        },
+                        "description": "SubscriptionKey for provided accounts or default accounts."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get User Principals",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/userprincipals?fields",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "userprincipals"
+                            ],
+                            "query": [{
+                                "key": "fields",
+                                "value": null,
+                                "description": "A comma separated String which allows one to specify additional fields to return. None of these fields are returned by default. Possible values in this String can be:\n\nstreamerSubscriptionKeys\nstreamerConnectionInfo\npreferences\nsurrogateIds\n\nExample:\nfields=streamerSubscriptionKeys,streamerConnectionInfo"
+                            }]
+                        },
+                        "description": "User Principal details."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Preferences",
+                    "request": {
+                        "method": "PUT",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/preferences",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                ":accountId",
+                                "preferences"
+                            ],
+                            "variable": [{
+                                "key": "accountId",
+                                "value": ""
+                            }]
+                        },
+                        "description": "Update preferences for a specific account. Please note that the directOptionsRouting and directEquityRouting values cannot be modified via this operation."
+                    },
+                    "response": []
+                }
+            ],
+            "description": "APIs to access user-authorized accounts and their preferences",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Watchlist",
+            "item": [{
+                    "name": "Create Watchlist",
+                    "request": {
+                        "method": "POST",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/watchlists",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                ":accountId",
+                                "watchlists"
+                            ],
+                            "variable": [{
+                                "key": "accountId",
+                                "value": ""
+                            }]
+                        },
+                        "description": "Create watchlist for specific account.This method does not verify that the symbol or asset type are valid."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Watchlist",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/:accountId:/watchlists/:watchlistId",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                ":accountId:",
+                                "watchlists",
+                                ":watchlistId"
+                            ],
+                            "variable": [{
+                                    "key": "accountId:",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "watchlistId",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Delete watchlist for a specific account."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Watchlist",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/watchlists/:watchlistId",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                ":accountId",
+                                "watchlists",
+                                ":watchlistId"
+                            ],
+                            "variable": [{
+                                    "key": "accountId",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "watchlistId",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Specific watchlist for a specific account."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Watchlists for Multiple Accounts",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/watchlists",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                "watchlists"
+                            ]
+                        },
+                        "description": "All watchlists for all of the user's linked accounts."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Watchlists for Single Account",
+                    "request": {
+                        "method": "GET",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/watchlists",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                ":accountId",
+                                "watchlists"
+                            ],
+                            "variable": [{
+                                "key": "accountId",
+                                "value": ""
+                            }]
+                        },
+                        "description": "All watchlists of an account."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Replace Watchlist",
+                    "request": {
+                        "method": "PUT",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "{{token}}",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/watchlists/:watchlistId",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                ":accountId",
+                                "watchlists",
+                                ":watchlistId"
+                            ],
+                            "variable": [{
+                                    "key": "accountId",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "watchlistId",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Replace watchlist for a specific account. This method does not verify that the symbol or asset type are valid."
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Watchlist",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [{
+                            "key": "Authorization",
+                            "value": "",
+                            "description": "Supply an access token to make an authenticated request. The format is Bearer <access token>.",
+                            "type": "text"
+                        }],
+                        "url": {
+                            "raw": "https://api.tdameritrade.com/v1/accounts/:accountId/watchlists/:watchlistId",
+                            "protocol": "https",
+                            "host": [
+                                "api",
+                                "tdameritrade",
+                                "com"
+                            ],
+                            "path": [
+                                "v1",
+                                "accounts",
+                                ":accountId",
+                                "watchlists",
+                                ":watchlistId"
+                            ],
+                            "variable": [{
+                                    "key": "accountId",
+                                    "value": ""
+                                },
+                                {
+                                    "key": "watchlistId",
+                                    "value": ""
+                                }
+                            ]
+                        },
+                        "description": "Partially update watchlist for a specific account: change watchlist name, add to the beginning/end of a watchlist, update or delete items in a watchlist. This method does not verify that the symbol or asset type are valid."
+                    },
+                    "response": []
+                }
+            ],
+            "description": "APIs to perform CRUD operations on Account Watchlist",
+            "protocolProfileBehavior": {}
+        },
+        {
+            "name": "Get Auth Token",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://auth.tdameritrade.com/auth?response_type=code&redirect_uri=&client_id=",
+                    "protocol": "https",
+                    "host": [
+                        "auth",
+                        "tdameritrade",
+                        "com"
+                    ],
+                    "path": [
+                        "auth"
+                    ],
+                    "query": [{
+                            "key": "response_type",
+                            "value": "code"
+                        },
+                        {
+                            "key": "redirect_uri",
+                            "value": ""
+                        },
+                        {
+                            "key": "client_id",
+                            "value": ""
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Refresh Token",
+            "request": {
+                "auth": {
+                    "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "urlencoded",
+                    "urlencoded": [{
+                            "key": "grant_type",
+                            "value": "authorization_code",
+                            "type": "text"
+                        },
+                        {
+                            "key": "client_id",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "redirect_uri",
+                            "value": "",
+                            "type": "text"
+                        },
+                        {
+                            "key": "code",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "https://api.tdameritrade.com/v1/oauth2/token",
+                    "protocol": "https",
+                    "host": [
+                        "api",
+                        "tdameritrade",
+                        "com"
+                    ],
+                    "path": [
+                        "v1",
+                        "oauth2",
+                        "token"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "protocolProfileBehavior": {}
 }
